@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_top_title"
+        style="@style/public_rl_title">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/icon_close_act"
+            style="@style/public_rl_title_app_image_button"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            style="@style/public_rl_title_tv_desc"
+            android:text="全部分类" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/gray_shallow"
+        android:layout_height="@dimen/dp_1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fbfbfb"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/goods_item_list"
+            android:layout_width="@dimen/dp_0"
+            android:divider="@color/gray_shallow"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/gray_shallow"
+            android:scrollbars="none" />
+
+        <View
+            android:layout_width="@dimen/dp_0_5"
+            android:layout_height="match_parent"
+            android:background="@color/gray_shallow" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="3.0" />
+    </LinearLayout>
+
+</LinearLayout>

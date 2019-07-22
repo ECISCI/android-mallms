@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Sample</string>
+    <string name="load_failed">加载失败</string>
+    <string name="http_error">服务器繁忙,请稍后再试</string>
+    <string name="http_is_null">没有检测到网络</string>
+    <string name="get_user_info_failed">获取用户信息失败</string>
+    <string name="get_user_name_failed">获取用户名信息失败</string>
+    <string name="get_user_pass_word_failed">获取用户密码失败</string>
+    <string name="clear_user_info_failed">清处用户信息失败</string>
+    <string name="save_user_info_failed">保存用户信息失败</string>
+    <string name="encryption_failed">加密失败</string>
+    <string name="request_success_post">执行网络请求成功 POST</string>
+    <string name="page_destruction_gc">页面已销毁 gc回收垃圾</string>
+    <string name="call_phone_cancel">取消</string>
+    <string name="call_phone_call">拨打</string>
+    <string name="sure_call_phone">确定要拨打电话吗？</string>
+    <string name="start_location">开始定位</string>
+    <string name="stop_location">停止定位</string>
+    <string name="error_code_desc">错误码说明</string>
+    <string name="diy_call_back">自定义回调</string>
+    <string name="popup_picture">拍照</string>
+    <string name="popup_photo_album">选择照片</string>
+    <string name="cancel">取消</string>
+    <string name="loading">玩命加载中...</string>
+    <string name="request_success">请求成功,具体返回结果集请查看Log日志</string>
+    <string name="request_failed">请求失败,具体错误信息请查看Log日志</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_shallow">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_title"
+        style="@style/public_rl_title">
+
+        <TextView
+            style="@style/public_rl_title_tv_desc"
+            android:text="考勤打卡" />
+    </RelativeLayout>
+
+</RelativeLayout>

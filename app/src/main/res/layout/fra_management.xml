@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_shallow"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_title"
+        style="@style/public_rl_title">
+
+        <TextView
+            style="@style/public_rl_title_tv_desc"
+            android:text="管理" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:layout_margin="@dimen/dp_5"
+        android:background="@drawable/corners_bg_white">
+
+        <LinearLayout
+            android:id="@+id/linear_add_new_goods"
+            style="@style/public_management_linear_module">
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/public_management_linear_module_Image"
+                android:background="@drawable/add_new_goods" />
+
+            <TextView
+                style="@style/public_management_linear_module_tv"
+                android:text="新增商品" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/public_management_linear_module">
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/public_management_linear_module_Image"
+                android:background="@drawable/search_goods" />
+
+            <TextView
+                style="@style/public_management_linear_module_tv"
+                android:text="商品查询" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/public_management_linear_module">
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/public_management_linear_module_Image"
+                android:background="@drawable/news_order" />
+
+            <TextView
+                style="@style/public_management_linear_module_tv"
+                android:text="订单管理" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
