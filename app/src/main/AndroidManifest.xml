@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.mincat.mobilemallmanager">
 
+    <!--网络访问权限-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--向SD卡中写文件-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--从SD卡中读文件-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--相机使用权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".app.MyApp"
@@ -10,9 +18,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/ActivityThemeCrossPublicMaterial">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon,android:theme">
 
         <activity
             android:name=".ui.SplashAct"
@@ -27,6 +36,9 @@
         <activity
             android:name=".MainHomeAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.CarriageTemplateAct"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
 
         <activity
             android:name=".ui.LoginAct"
@@ -39,7 +51,15 @@
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
         <activity
             android:name=".ui.ModifyGoodsInfoAct"
-            android:windowSoftInputMode="stateVisible"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.DiscountAct"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.PublicWeb"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.AddPicAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
 
         <provider
@@ -51,6 +71,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_path" />
         </provider>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
     </application>
 
 </manifest>

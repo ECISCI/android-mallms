@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_shallow"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_title"
+        style="@style/public_rl_title">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/icon_close_act"
+            style="@style/public_rl_title_app_image_button"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            style="@style/public_rl_title_tv_desc"
+            android:text="商品折扣" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:textSize="@dimen/sp_14"
+            android:layout_width="@dimen/dp_75"
+            android:layout_height="@dimen/dp_35"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@color/gray_shallow"
+            android:text="保存"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <RadioGroup
+            android:id="@+id/rg_discount"
+            style="@style/rg_vertical"
+            android:layout_below="@id/rg_express_choice">
+
+            <RadioButton
+                android:id="@+id/rb_discount_none"
+                style="@style/rb_vertical"
+                android:checked="true"
+                android:text="无折扣" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_10"
+                style="@style/rb_vertical"
+                android:text="10% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_15"
+                style="@style/rb_vertical"
+                android:text="15% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_20"
+                style="@style/rb_vertical"
+                android:text="20% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_25"
+                style="@style/rb_vertical"
+                android:text="25% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_30"
+                style="@style/rb_vertical"
+                android:text="30% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_35"
+                style="@style/rb_vertical"
+                android:text="35% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_40"
+                style="@style/rb_vertical"
+                android:text="40% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_45"
+                style="@style/rb_vertical"
+                android:text="45% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_50"
+                style="@style/rb_vertical"
+                android:text="50% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_55"
+                style="@style/rb_vertical"
+                android:text="55% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_60"
+                style="@style/rb_vertical"
+                android:text="60% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_65"
+                style="@style/rb_vertical"
+                android:text="65% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_70"
+                style="@style/rb_vertical"
+                android:text="70% off" />
+
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_75"
+                style="@style/rb_vertical"
+                android:text="75% off" />
+
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_80"
+                style="@style/rb_vertical"
+                android:text="80% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_85"
+                style="@style/rb_vertical"
+                android:text="85% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+            <RadioButton
+                android:id="@+id/rb_discount_90"
+                style="@style/rb_vertical"
+                android:text="90% off" />
+
+            <View style="@style/carriage_template_rg_v_line" />
+
+        </RadioGroup>
+
+    </ScrollView>
+</LinearLayout>

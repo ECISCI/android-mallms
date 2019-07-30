@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_shallow">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_title"
+        style="@style/public_rl_title">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/icon_close_act"
+            style="@style/public_rl_title_app_image_button"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            style="@style/public_rl_title_tv_desc"
+            android:text="快递模板" />
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@color/gray_shallow"
+            android:text="保存"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_express_choice"
+        style="@style/carriage_template_rg"
+        android:layout_height="@dimen/dp_80"
+        android:layout_below="@id/rl_top_title">
+
+        <RadioButton
+            android:id="@+id/rb_sf"
+            style="@style/carriage_template_rb_item"
+            android:checked="true"
+            android:drawableTop="@drawable/sf"
+            android:text="顺丰速运" />
+
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            android:id="@+id/rb_ems"
+            style="@style/carriage_template_rb_item"
+            android:drawableTop="@drawable/yz"
+            android:text="EMS" />
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            android:id="@+id/rb_st"
+            style="@style/carriage_template_rb_item"
+            android:drawableTop="@drawable/by"
+            android:text="申通" />
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            style="@style/carriage_template_rb_item"
+            android:drawableTop="@drawable/by"
+            android:text="包邮"
+            android:visibility="gone" />
+
+    </RadioGroup>
+
+
+    <RadioGroup
+        android:id="@+id/rg_express_price"
+        style="@style/carriage_template_rg"
+        android:layout_below="@id/rg_express_choice">
+
+        <RadioButton
+            android:id="@+id/rb_by"
+            style="@style/radio_group_item"
+            android:checked="true"
+            android:paddingTop="@dimen/dp_10"
+            android:text="包邮"
+            android:textSize="@dimen/sp_12"
+            android:visibility="visible" />
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            android:id="@+id/rb_10"
+            style="@style/radio_group_item"
+            android:paddingTop="@dimen/dp_10"
+            android:text="￥10.00"
+            android:textSize="@dimen/sp_12" />
+
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            android:id="@+id/rb_12"
+            style="@style/radio_group_item"
+            android:paddingTop="@dimen/dp_10"
+            android:text="￥12.00"
+            android:textSize="@dimen/sp_12" />
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+        <RadioButton
+            android:id="@+id/rb_22"
+            style="@style/radio_group_item"
+            android:paddingTop="@dimen/dp_10"
+            android:text="￥22.00"
+            android:textSize="@dimen/sp_12" />
+
+        <View style="@style/carriage_template_rg_h_line" />
+
+
+    </RadioGroup>
+
+
+</RelativeLayout>

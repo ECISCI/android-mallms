@@ -19,8 +19,8 @@ import com.mincat.sample.utils.T;
 
 public class ModifyGoodsInfoAct extends MinCatBaseRequest {
 
-    public static final int RESPONSE_CODE_PRICE = 0x9001;
-    public static final int RESPONSE_CODE_NUM = 0x9002;
+    public static final int RESPONSE_CODE_PRICE = 0x4001;
+    public static final int RESPONSE_CODE_NUM = 0x4002;
 
     public static final String ET_COUNT = "et_count";
 

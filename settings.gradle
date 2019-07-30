@@ -1,1 +1,1 @@
-include ':app', ':mincat'
+include ':app', ':lib-mincat', ':lib-sweet-dialog'

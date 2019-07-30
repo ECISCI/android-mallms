@@ -1,6 +1,5 @@
 package com.mincat.mobilemallmanager.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -56,8 +55,7 @@ public class SplashAct extends MinCatAppCompat {
 
     protected void inStep(Class clazz) {
 
-        Intent intent = new Intent(SplashAct.this, clazz);
-        startActivity(intent);
+        intentUtils.launchActFromRight(this, clazz);
         SplashAct.this.finish();
     }
 

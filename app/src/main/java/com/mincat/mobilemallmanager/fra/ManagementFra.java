@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import com.android.volley.VolleyError;
 import com.mincat.mobilemallmanager.R;
 import com.mincat.mobilemallmanager.ui.AddGoodsAct;
-import com.mincat.mobilemallmanager.ui.GoodsCategoryAct;
 import com.mincat.sample.manager.fra.MinCatFragment;
 
 /**
@@ -55,12 +54,10 @@ public class ManagementFra extends MinCatFragment implements SwipeRefreshLayout.
 
             case R.id.linear_add_new_goods:
 
-                intentUtils.launchActFromRight(getActivity(), AddGoodsAct.class);
 
+                intentUtils.launchActFromRight(getActivity(), AddGoodsAct.class);
                 break;
         }
-
-
     }
 
     @Override

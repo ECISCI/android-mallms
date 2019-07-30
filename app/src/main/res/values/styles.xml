@@ -205,4 +205,46 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+
+    <style name="carriage_template_rg_h_line">
+        <item name="android:layout_width">@dimen/dp_0_5</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/gray_shallow</item>
+    </style>
+    <style name="carriage_template_rb_item" parent="@style/radio_group_item">
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="carriage_template_rg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="rg_vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="rb_vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_50</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">@dimen/dp_3</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">@dimen/dp_30</item>
+        <item name="android:textColor">@drawable/index_text_color_selecter</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="carriage_template_rg_v_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_0_5</item>
+        <item name="android:background">@color/gray_shallow</item>
+    </style>
 </resources>
