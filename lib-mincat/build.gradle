@@ -99,4 +99,6 @@ dependencies {
     implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.2'
 
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
 }

@@ -13,6 +13,18 @@ public class Constants {
 
     }
 
+    public static final String CONTENT_TYPE_KEY = "Content-Type";
+    public static final String CONTENT_TYPE_VALUE = "application/json;charset=UTF-8";
+
+    public static final String TOKEN_KEY = "Authorization";
+
+    public static final String APP_TYPE = "appType";
+
+    public static final String APP_TYPE_VALUE = "0";
+
+
+
+
     public static final String TAG = "Constants";
 
     // 内置文件表
@@ -82,4 +94,8 @@ public class Constants {
     public static int ROUTER_ANIM_ENTER = Router.RES_NONE;
 
     public static int ROUTER_ANIM_EXIT = Router.RES_NONE;
+
+
+    public static final String TEST_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbk5hbWUiOiIxMTA1IiwiZXhwIjoxNTc4NTQ5OTczfQ.bCwe39W1a12PF3T3bObmQjZkzSYjIu6P7p32R0k0F1k";
+
 }

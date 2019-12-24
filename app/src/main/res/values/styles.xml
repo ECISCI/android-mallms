@@ -44,7 +44,7 @@
         <item name="android:drawablePadding">@dimen/dp_3</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@drawable/index_text_color_selecter</item>
-        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textSize">@dimen/sp_10</item>
     </style>
     <style name="radio_group_item_add_goods">
         <item name="android:layout_width">match_parent</item>
@@ -246,5 +246,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_0_5</item>
         <item name="android:background">@color/gray_shallow</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 </resources>

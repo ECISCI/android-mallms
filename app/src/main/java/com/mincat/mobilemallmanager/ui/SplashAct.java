@@ -41,7 +41,7 @@ public class SplashAct extends MinCatAppCompat {
 
                 if (!isLogin) { // 如果没有登录,则进入登录页
 
-                    inStep(LoginAct.class);
+                    inStep(MainHomeAct.class);
 
                 } else { // 如果已登录则进入主界面
 

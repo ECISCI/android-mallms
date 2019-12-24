@@ -3,6 +3,7 @@ package com.mincat.mobilemallmanager.bean;
 public class BaseBean {
 
     private String msg;
+
     private int code;
 
     public String getMsg() {

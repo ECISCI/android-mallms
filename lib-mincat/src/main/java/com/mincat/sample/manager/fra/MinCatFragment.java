@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mincat.sample.manager.inter.MinCatInitFra;
 import com.mincat.sample.manager.inter.MinCatVolleyAllListener;
+import com.mincat.sample.utils.Constants;
 import com.mincat.sample.utils.IntentUtils;
 import com.mincat.sample.utils.LogUtils;
 import com.mincat.sample.utils.NetUtils;
@@ -39,6 +40,7 @@ public abstract class MinCatFragment extends Fragment implements MinCatInitFra, 
 
     protected IntentUtils intentUtils = IntentUtils.getInstance();
 
+
     /**
      * Volley请求队列
      */
@@ -55,6 +57,16 @@ public abstract class MinCatFragment extends Fragment implements MinCatInitFra, 
     }
 
 
+    private Map<String, String> initHeaders(String sign) {
+
+        Map<String, String> headers = new HashMap<>();
+        headers.put(Constants.CONTENT_TYPE_KEY, Constants.CONTENT_TYPE_VALUE);
+        headers.put(Constants.TOKEN_KEY, Constants.TEST_TOKEN);
+        headers.put(Constants.APP_TYPE, Constants.APP_TYPE_VALUE);
+
+        return headers;
+    }
+
     /**
      * @param context   上下文对象
      * @param sign      标记
@@ -63,7 +75,7 @@ public abstract class MinCatFragment extends Fragment implements MinCatInitFra, 
      * @param hasDialog 是否有进度条
      * @describe 执行网络请求 POST方法
      */
-    protected void executeVolleyPostRequest(final Context context, String url, final String param, String sign, boolean hasDialog) {
+    protected void executeVolleyPostRequest(final Context context, String url, final String param, final String sign, boolean hasDialog) {
 
         if (NetUtils.checkNet(context)) {
 
@@ -82,9 +94,8 @@ public abstract class MinCatFragment extends Fragment implements MinCatInitFra, 
 
                 @Override // 添加请求头
                 public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> headers = new HashMap<>();
 
-                    return headers;
+                    return initHeaders(sign);
                 }
 
                 @Override // 添加Json请求参数

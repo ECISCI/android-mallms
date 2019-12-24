@@ -80,7 +80,7 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
                 @Override // 添加请求头 可以添加token等等信息,根据项目情况自定义
                 public Map<String, String> getHeaders() throws AuthFailureError {
 
-                    return initHeaders(sign, context);
+                    return initHeaders(sign);
                 }
 
 
@@ -124,7 +124,7 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
                 public Map<String, String> getHeaders() throws AuthFailureError {
 
 
-                    return initHeaders(sign, context);
+                    return initHeaders(sign);
                 }
 
                 public RetryPolicy getRetryPolicy() {
@@ -219,16 +219,17 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
      *
      * @return 一个Header的map集合
      */
-    private Map<String, String> initHeaders(String sign, Context context) {
+    private Map<String, String> initHeaders(String sign) {
 
         Map<String, String> headers = new HashMap<>();
 
-        headers.put("Content-Type", "application/json");
+        headers.put(Constants.CONTENT_TYPE_KEY, Constants.CONTENT_TYPE_VALUE);
 
         if (!sign.equals(Constants.SIGN_LOGIN)) {
 
-            headers.put("token", SpUtils.getUserLoginToken(context));
+            headers.put(Constants.TOKEN_KEY, Constants.TEST_TOKEN);
         }
+        headers.put(Constants.APP_TYPE, Constants.APP_TYPE_VALUE);
         return headers;
     }
 

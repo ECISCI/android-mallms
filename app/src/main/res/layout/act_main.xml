@@ -40,12 +40,14 @@
             android:paddingBottom="@dimen/paddingBottom_5">
 
             <RadioButton
-                android:id="@+id/r_punch_clock"
+                android:drawableTop="@drawable/home"
+                android:id="@+id/r_home"
                 style="@style/radio_group_item"
                 android:checked="true"
-                android:text="考勤" />
+                android:text="首页" />
 
             <RadioButton
+                android:drawableTop="@drawable/manage"
                 android:id="@+id/r_management"
                 style="@style/radio_group_item"
 
@@ -53,14 +55,16 @@
 
 
             <RadioButton
+                android:drawableTop="@drawable/message"
                 android:id="@+id/r_im"
                 style="@style/radio_group_item"
-                android:text="通讯" />
+                android:text="消息" />
 
             <RadioButton
+                android:drawableTop="@drawable/my"
                 android:id="@+id/r_setting"
                 style="@style/radio_group_item"
-                android:text="设置"
+                android:text="我的"
                 android:visibility="visible" />
         </RadioGroup>
 

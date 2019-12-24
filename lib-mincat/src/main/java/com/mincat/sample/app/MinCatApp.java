@@ -23,7 +23,7 @@ import okhttp3.Response;
 
 
 /**
- * @author Gin
+ * @author 玛丽莲梦明
  * @描述 应用程序启动
  */
 public class MinCatApp extends Application {

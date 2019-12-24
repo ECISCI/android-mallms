@@ -16,7 +16,7 @@
 
         <TextView
             style="@style/public_rl_title_tv_desc"
-            android:text="网页啊" />
+            android:text="网页端" />
 
     </RelativeLayout>
 

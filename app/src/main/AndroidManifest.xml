@@ -61,6 +61,9 @@
         <activity
             android:name=".ui.AddPicAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.TestGetVerifyCodeAct"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

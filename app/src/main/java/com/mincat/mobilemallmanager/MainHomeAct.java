@@ -1,5 +1,6 @@
 package com.mincat.mobilemallmanager;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,9 +11,9 @@ import android.widget.RadioGroup;
 
 import com.android.volley.VolleyError;
 import com.mincat.mobilemallmanager.fra.ManagementFra;
-import com.mincat.mobilemallmanager.fra.PunchClockFra;
-import com.mincat.mobilemallmanager.fra.ImFra;
-import com.mincat.mobilemallmanager.fra.SettingFra;
+import com.mincat.mobilemallmanager.fra.HomeFra;
+import com.mincat.mobilemallmanager.fra.MessageFra;
+import com.mincat.mobilemallmanager.fra.MyFra;
 import com.mincat.sample.manager.MinCatBaseRequest;
 import com.mincat.sample.utils.AppManager;
 import com.mincat.sample.utils.Constants;
@@ -29,15 +30,15 @@ public class MainHomeAct extends MinCatBaseRequest implements RadioGroup.OnCheck
     private long exitTimeMillis = System.currentTimeMillis();
 
     private ManagementFra mManagementFra;
-    private PunchClockFra mPunchClockFra;
-    private ImFra mImFra;
-    private SettingFra mSettingFra;
+    private HomeFra mHomeFra;
+    private MessageFra mMessageFra;
+    private MyFra mMyFra;
 
     private FragmentManager fm;
     private FragmentTransaction transaction;
     private RadioGroup mRadioButtonRg;
     private FragmentTransaction transaction1;
-    private RadioButton mRadioMain, mRadioController, mRadioFunction, mMy;
+    private RadioButton mRadioManage, mRadioMain, mRadioMessage, mMy;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,8 @@ public class MainHomeAct extends MinCatBaseRequest implements RadioGroup.OnCheck
 
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            mPunchClockFra = new PunchClockFra();
-            fragmentManager.beginTransaction().replace(R.id.fl, mPunchClockFra, mHomePage).commit();
+            mHomeFra = new HomeFra();
+            fragmentManager.beginTransaction().replace(R.id.fl, mHomeFra, mHomePage).commit();
         }
     }
 
@@ -62,15 +63,30 @@ public class MainHomeAct extends MinCatBaseRequest implements RadioGroup.OnCheck
         transaction = fm.beginTransaction();
 
         mManagementFra = (ManagementFra) fm.findFragmentByTag(mHomePage);
-        mPunchClockFra = (PunchClockFra) fm.findFragmentByTag("mPunchClockFra");
-        mImFra = (ImFra) fm.findFragmentByTag("mImFra");
-        mSettingFra = (SettingFra) fm.findFragmentByTag("mSettingFra");
+        mHomeFra = (HomeFra) fm.findFragmentByTag("mPunchClockFra");
+        mMessageFra = (MessageFra) fm.findFragmentByTag("mImFra");
+        mMyFra = (MyFra) fm.findFragmentByTag("mSettingFra");
 
-        mRadioMain = getId(R.id.r_management);
-        mRadioController = getId(R.id.r_punch_clock);
-        mRadioFunction = getId(R.id.r_im);
+        mRadioManage = getId(R.id.r_management);
+        mRadioMain = getId(R.id.r_home);
+        mRadioMessage = getId(R.id.r_im);
         mMy = getId(R.id.r_setting);
 
+        initRButtonSize(mRadioMain,R.drawable.home);
+        initRButtonSize(mRadioManage,R.drawable.manage);
+        initRButtonSize(mRadioMessage,R.drawable.message);
+        initRButtonSize(mMy,R.drawable.my);
+
+    }
+
+    private void initRButtonSize(RadioButton button,int drawable) {
+
+        //定义底部标签图片大小和位置
+        Drawable drawable_news = getResources().getDrawable(drawable);
+        //当这个图片被绘制时，给他绑定一个矩形 ltrb规定这个矩形
+        drawable_news.setBounds(0, 0, 85, 85);
+        //设置图片在文字的哪个方向
+        button.setCompoundDrawables(null, drawable_news, null, null);
     }
 
     @Override
@@ -79,14 +95,14 @@ public class MainHomeAct extends MinCatBaseRequest implements RadioGroup.OnCheck
         if (mManagementFra != null) {
             transaction1.hide(mManagementFra);
         }
-        if (mPunchClockFra != null) {
-            transaction1.hide(mPunchClockFra);
+        if (mHomeFra != null) {
+            transaction1.hide(mHomeFra);
         }
-        if (mImFra != null) {
-            transaction1.hide(mImFra);
+        if (mMessageFra != null) {
+            transaction1.hide(mMessageFra);
         }
-        if (mSettingFra != null) {
-            transaction1.hide(mSettingFra);
+        if (mMyFra != null) {
+            transaction1.hide(mMyFra);
         }
 
 
@@ -98,29 +114,29 @@ public class MainHomeAct extends MinCatBaseRequest implements RadioGroup.OnCheck
                 transaction1.show(mManagementFra);
             }
 
-        } else if (checkedId == R.id.r_punch_clock) {
-            if (mPunchClockFra == null) {
-                mPunchClockFra = new PunchClockFra();
+        } else if (checkedId == R.id.r_home) {
+            if (mHomeFra == null) {
+                mHomeFra = new HomeFra();
 
-                transaction1.add(R.id.fl, mPunchClockFra, "mPunchClockFra");
+                transaction1.add(R.id.fl, mHomeFra, "mPunchClockFra");
             } else {
-                transaction1.show(mPunchClockFra);
+                transaction1.show(mHomeFra);
             }
 
         } else if (checkedId == R.id.r_im) {
-            if (mImFra == null) {
-                mImFra = new ImFra();
-                transaction1.add(R.id.fl, mImFra, "mImFra");
+            if (mMessageFra == null) {
+                mMessageFra = new MessageFra();
+                transaction1.add(R.id.fl, mMessageFra, "mImFra");
             } else {
-                transaction1.show(mImFra);
+                transaction1.show(mMessageFra);
             }
 
         } else if (checkedId == R.id.r_setting) {
-            if (mSettingFra == null) {
-                mSettingFra = new SettingFra();
-                transaction1.add(R.id.fl, mSettingFra, "mSettingFra");
+            if (mMyFra == null) {
+                mMyFra = new MyFra();
+                transaction1.add(R.id.fl, mMyFra, "mSettingFra");
             } else {
-                transaction1.show(mSettingFra);
+                transaction1.show(mMyFra);
             }
         }
         transaction1.commit();

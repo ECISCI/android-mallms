@@ -21,7 +21,7 @@ import com.mincat.sample.utils.LogUtils;
 import java.util.List;
 
 /**
- * @author Ming
+ * @author 玛丽莲梦明
  * @描述 添加商品
  */
 public class AddGoodsAct extends MinCatBaseRequest {
