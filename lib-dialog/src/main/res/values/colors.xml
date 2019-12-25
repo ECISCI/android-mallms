@@ -21,7 +21,8 @@
     <color name="material_deep_teal_50">#ff009688</color>
 
     <!--app主颜色值-->
-    <color name="main">#FFB100</color>
+    <color name="main">#4ac2bc</color>
+<!--    <color name="main">#FFB100</color>-->
 <!--
     <color name="main">#4ac2bc</color>
 -->

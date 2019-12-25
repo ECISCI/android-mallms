@@ -4,14 +4,6 @@
     package="com.mincat.mobilemallmanager">
 
     <!--网络访问权限-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--向SD卡中写文件-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--从SD卡中读文件-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--相机使用权限-->
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"
@@ -44,6 +36,9 @@
             android:name=".ui.LoginAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
         <activity
+            android:name=".ui.RegisterAct"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
             android:name=".ui.GoodsCategoryAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
         <activity
@@ -64,6 +59,9 @@
         <activity
             android:name=".ui.TestGetVerifyCodeAct"
             android:theme="@style/ActivityThemeCrossPublicMaterial" />
+        <activity
+            android:name=".ui.MusicAct"
+            android:theme="@style/ActivityThemeCrossPublicMaterial" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -79,5 +77,13 @@
             android:required="false" />
 
     </application>
+    <!--向SD卡中写文件-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--从SD卡中读文件-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--相机使用权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -16,8 +16,8 @@
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_marginBottom">@dimen/dp_5</item>
         <item name="android:textCursorDrawable">@drawable/et_cursor</item>
-        <item name="android:textSize">@dimen/sp_14</item>
-        <item name="android:gravity">bottom</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="login_tv">
@@ -30,7 +30,7 @@
 
     <style name="login_et_blow_line">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp_0_5</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
         <item name="android:background">@color/gray_shallow</item>
         <item name="android:layout_alignParentBottom">true</item>
     </style>
@@ -46,6 +46,7 @@
         <item name="android:textColor">@drawable/index_text_color_selecter</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
+
     <style name="radio_group_item_add_goods">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_80</item>
@@ -95,6 +96,7 @@
         <item name="android:background">@drawable/icon_back_black</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+
     <style name="public_management_linear_module">
         <item name="android:layout_width">@dimen/dp_0</item>
         <item name="android:layout_height">match_parent</item>
@@ -103,6 +105,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">vertical</item>
     </style>
+
     <style name="public_management_linear_module_tv">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -110,6 +113,7 @@
         <item name="android:layout_marginTop">@dimen/dp_8</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="public_management_linear_module_Image">
         <item name="android:layout_width">@dimen/dp_35</item>
         <item name="android:layout_height">@dimen/dp_35</item>
@@ -130,6 +134,7 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_marginLeft">@dimen/dp_10</item>
     </style>
+
     <style name="public_arrow_image">
         <item name="android:layout_width">@dimen/dp_20</item>
         <item name="android:layout_height">@dimen/dp_20</item>
@@ -147,6 +152,7 @@
         <item name="android:textColor">@color/main_text_color</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
+
     <style name="public_add_goods_edit">
         <item name="android:layout_width">@dimen/dp_20</item>
         <item name="android:layout_height">@dimen/dp_20</item>
@@ -155,6 +161,7 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:background">@drawable/icon_arrow</item>
     </style>
+
     <style name="public_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -176,6 +183,7 @@
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:focusable">false</item>
     </style>
+
     <style name="public_add_goods_linear_image">
         <item name="android:layout_width">@dimen/dp_15</item>
         <item name="android:layout_height">@dimen/dp_15</item>
@@ -184,6 +192,7 @@
         <item name="android:focusable">false</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+
     <style name="public_add_goods_linear_tv">
         <item name="android:layout_width">@dimen/dp_15</item>
         <item name="android:layout_height">@dimen/dp_15</item>
@@ -191,6 +200,7 @@
         <item name="android:layout_marginLeft">@dimen/dp_10</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
+
     <style name="public_add_goods_view_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_1</item>
@@ -211,6 +221,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/gray_shallow</item>
     </style>
+
     <style name="carriage_template_rb_item" parent="@style/radio_group_item">
         <item name="android:paddingTop">@dimen/dp_10</item>
         <item name="android:textSize">@dimen/sp_12</item>
@@ -223,6 +234,7 @@
         <item name="android:background">@color/white</item>
         <item name="android:orientation">horizontal</item>
     </style>
+
     <style name="rg_vertical">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -230,6 +242,7 @@
         <item name="android:background">@color/white</item>
         <item name="android:orientation">vertical</item>
     </style>
+
     <style name="rb_vertical">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_50</item>
@@ -253,5 +266,35 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">?attr/colorPrimary</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+
+    <style name="fra_my_rl_public">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_44</item>
+    </style>
+
+    <style name="fra_my_rl_public_image">
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/dp_20</item>
+    </style>
+
+    <style name="fra_my_rl_public_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/dp_20</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="fra_my_rl_public_view_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/gray_shallow</item>
+        <item name="android:layout_marginLeft">@dimen/dp_20</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginRight">@dimen/dp_20</item>
     </style>
 </resources>

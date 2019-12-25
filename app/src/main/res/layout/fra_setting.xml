@@ -3,22 +3,174 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/gray_shallow">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/image_second_floor_content"
+        android:background="@drawable/tool_bg"
         app:srlEnableFooterFollowWhenLoadFinished="true"
         app:srlEnableScrollContentWhenLoaded="true">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/gray_shallow">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_my_card"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@drawable/corners_bg_white"
+                android:orientation="vertical">
 
 
-        </FrameLayout>
+                <RelativeLayout style="@style/fra_my_rl_public">
+
+                    <TextView
+                        style="@style/fra_my_rl_public_text"
+                        android:layout_toRightOf="@id/icon_update"
+                        android:text="检查更新" />
+
+                    <View style="@style/fra_my_rl_public_view_line" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/icon_update"
+                        style="@style/fra_my_rl_public_image"
+                        android:background="@drawable/icon_update" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/fra_my_rl_public">
+
+                    <TextView
+                        style="@style/fra_my_rl_public_text"
+                        android:layout_toRightOf="@id/icon_about"
+                        android:text="关于我们" />
+
+                    <View style="@style/fra_my_rl_public_view_line" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/icon_about"
+                        style="@style/fra_my_rl_public_image"
+                        android:background="@drawable/icon_about" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/fra_my_rl_public">
+
+                    <TextView
+                        style="@style/fra_my_rl_public_text"
+                        android:layout_toRightOf="@id/icon_setting"
+                        android:text="设置" />
+
+                    <View style="@style/fra_my_rl_public_view_line" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/icon_setting"
+                        style="@style/fra_my_rl_public_image"
+                        android:background="@drawable/icon_setting" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_my_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_120"
+                android:layout_margin="@dimen/dp_10"
+                android:background="@drawable/corners_bg_white">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image_login"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="登录/注册"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_13" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/image_login"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/avatar_0" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_toRightOf="@id/icon_avatar">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="玛丽莲梦明"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:background="@drawable/vip" />
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/icon_avatar"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_20"
+                        android:background="@drawable/avatar_1" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:text="沈阳熊猫科技电子商务有限公司 "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </FrameLayout>

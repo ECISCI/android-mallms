@@ -1,16 +1,15 @@
-package com.mincat.mobilemallmanager.entity.login.request;
+package com.mincat.mobilemallmanager.entity.register;
 
+public class RegisterReq {
 
-/**
- * @author Gin
- * @描述 登录请求实体
- */
-public class LoginReqData {
-
+    /**
+     * 注册用户名
+     */
     private String username;
-
+    /**
+     * 注册密码
+     */
     private String password;
-
 
     public String getUsername() {
         return username;
@@ -27,5 +26,4 @@ public class LoginReqData {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

@@ -1,6 +1,7 @@
 package com.mincat.mobilemallmanager;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -21,6 +22,8 @@ import com.mincat.sample.manager.inter.MinCatVolleyAllListener;
 import com.mincat.sample.utils.NetUtils;
 import com.mincat.sample.utils.VolleySingle;
 import com.mincat.sample.utils.statusBar.StatusBarCompat;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,10 +64,13 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
         if (NetUtils.checkNet(context)) {
             if (hasDialog) {
 
-                if (sign.equals(Constants.SIGN_LOGIN)) {
-
-                    customProgressDialog.showProgressDialog(context, true, "登录中...");
-                }
+//                if (sign.equals(Constants.REGISTER_USER_SIGN)){
+//
+//                    showRequestDialog(context,"注册中...");
+//                }else if (sign.equals(Constants.LOGIN_SIGN)){
+//
+//                    showRequestDialog(context,"登录中...");
+//                }
 
 
             }
@@ -112,8 +118,6 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
 
         if (NetUtils.checkNet(context)) {
             if (hasDialog) {
-                // 此处加载请求进度条
-
 
             }
             mQueue = Volley.newRequestQueue(context);
@@ -161,7 +165,7 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
 
                 if (hasDialog) {
                     // 在此处关闭进度条
-                    customProgressDialog.closeProgressDialog();
+//                    closeRequestDialog();
                 }
 
                 onHandleResponseGet(response, sign);
@@ -183,7 +187,7 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
             public void onResponse(String response) {
                 if (hasDialog) {
                     // 在此处关闭进度条
-                    customProgressDialog.closeProgressDialog();
+//                    closeRequestDialog();
 
                 }
                 onHandleResponsePost(response, sign);
@@ -205,7 +209,7 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
 
                 if (hasDialog) {
                     // 如果包含请求进度条 在此处关闭进度条
-                    customProgressDialog.closeProgressDialog();
+//                    closeRequestDialog();
                 }
                 errorListener(error, sign);
             }
@@ -232,5 +236,29 @@ public abstract class MinCatBaseRequest extends MinCatAppCompat implements MinCa
         headers.put(Constants.APP_TYPE, Constants.APP_TYPE_VALUE);
         return headers;
     }
+
+
+    private ZLoadingDialog dialog;
+
+    private void showRequestDialog(Context context,String desc) {
+
+        dialog = new ZLoadingDialog(context);
+        dialog.setLoadingBuilder(Z_TYPE.STAR_LOADING)//设置类型
+                .setLoadingColor(getResources().getColor(R.color.main))//颜色
+                .setCanceledOnTouchOutside(false)
+                .setDialogBackgroundColor(Color.parseColor("#00000000"))
+                .setHintText(desc)
+                .setHintTextSize(14) // 设置字体大小 dp
+                .setHintTextColor(getResources().getColor(R.color.main))  // 设置字体颜色
+                .setDurationTime(0.5) // 设置动画时间百分比 - 0.5倍
+                .setDialogBackgroundColor(Color.parseColor("#FFFFFF")) // 设置背景色，默认白色
+                .show();
+
+    }
+
+//    private void closeRequestDialog() {
+//
+//        dialog.dismiss();
+//    }
 
 }

@@ -64,17 +64,17 @@ public class SpUtils {
     /**
      * 添加登录token
      *
-     * @param userInfo token值
+     * @param userId token值
      * @param context          上下文对象
      */
-    public static void setUserInfo(String userInfo, Context context) {
+    public static void setUserId(String userId, Context context) {
         SharedPreferences sp;
         SharedPreferences.Editor editor;
         try {
             sp = context.getSharedPreferences(Constants.CONFIG,
                     Context.MODE_PRIVATE);
             editor = sp.edit();
-            editor.putString("userInfo", userInfo);
+            editor.putString("userId", userId);
             editor.commit();
 
         } catch (Exception e) {
@@ -89,12 +89,12 @@ public class SpUtils {
      * @param context 上下文对象
      * @return token值
      */
-    public static String getUserInfo(Context context) {
+    public static String getUserId(Context context) {
 
         SharedPreferences sp;
         try {
             sp = context.getSharedPreferences(Constants.CONFIG, Context.MODE_PRIVATE);
-            String userInfo = sp.getString("userInfo", "");
+            String userInfo = sp.getString("userId", "");
 
             return userInfo;
 

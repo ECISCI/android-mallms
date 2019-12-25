@@ -20,9 +20,11 @@ import com.mincat.mobilemallmanager.entity.pics.PicsRes;
 import com.mincat.mobilemallmanager.utils.Constants;
 import com.mincat.mobilemallmanager.utils.GlideImageLoader;
 import com.mincat.mobilemallmanager.utils.HandleUtils;
+import com.mincat.sample.imagecache.utils.Constant;
 import com.mincat.sample.manager.fra.MinCatFragment;
 import com.mincat.sample.utils.LogUtils;
 import com.mincat.sample.utils.PublicRefreshSetting;
+import com.mincat.sample.utils.T;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
@@ -41,6 +43,10 @@ public class HomeFra extends MinCatFragment implements SwipeRefreshLayout.OnRefr
     private static final String TAG = HomeFra.class.getSimpleName();
 
     private static final int INIT_LUNBO_PICS = 0X0010;
+
+    private static final int REQUEST_DATA_NULL = 0X0012;
+
+    private static final int AUTH_ERROR = 0X0013;
 
     private Banner banner;
 
@@ -78,7 +84,6 @@ public class HomeFra extends MinCatFragment implements SwipeRefreshLayout.OnRefr
         initRefresh();
 
         onNetRequest();
-
     }
 
     private void onNetRequest() {
@@ -164,16 +169,31 @@ public class HomeFra extends MinCatFragment implements SwipeRefreshLayout.OnRefr
 
             picsResList = bean.getData();
 
-            for (PicsRes data : picsResList) {
+            if (bean.getCode() == Constants.REQUEST_SUCCESS_CODE
+                    && picsResList != null
+                    && picsResList.size() > 0) {
 
-                images.add(data.getImageUrl());
-                bannersTitle.add(data.getImageDesc());
+                for (PicsRes data : picsResList) {
+
+                    images.add(data.getImageUrl());
+                    bannersTitle.add(data.getImageDesc());
+                }
+
+                if (images.size() > 0 && bannersTitle.size() > 0 && images.size() == bannersTitle.size()) {
+
+                    HandleUtils.sendHandle(handler, INIT_LUNBO_PICS, Constants.NULL_STRING);
+                }
+
+            } else if (bean.getCode() == Constants.AUTH_CODE) {
+
+                HandleUtils.sendHandle(handler, AUTH_ERROR, Constants.NULL_STRING);
+
+            } else {
+
+                HandleUtils.sendHandle(handler, REQUEST_DATA_NULL, Constants.NULL_STRING);
             }
 
-            if (images.size() > 0 && bannersTitle.size() > 0 && images.size() == bannersTitle.size()) {
 
-                HandleUtils.sendHandle(handler,INIT_LUNBO_PICS,Constants.NULL_STRING);
-            }
         }
     }
 
@@ -195,9 +215,21 @@ public class HomeFra extends MinCatFragment implements SwipeRefreshLayout.OnRefr
 
             switch (msg.what) {
 
-                case INIT_LUNBO_PICS:
+                case INIT_LUNBO_PICS: // 初始化呢轮播图
 
                     initLunBoPics();
+                    break;
+
+
+                case AUTH_ERROR: // 获取轮播图参数为null
+
+                    T.showShort(getActivity(), "认证失败");
+
+                    break;
+                case REQUEST_DATA_NULL:
+
+                    T.showShort(getActivity(), "暂无相关数据");
+
                     break;
             }
 

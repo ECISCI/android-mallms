@@ -9,11 +9,12 @@
     <LinearLayout
         android:id="@+id/linear_input"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_155"
+        android:layout_height="@dimen/dp_150"
         android:layout_below="@id/rl_image_logo"
         android:layout_marginLeft="@dimen/dp_15"
         android:layout_marginTop="@dimen/dp_5"
         android:layout_marginRight="@dimen/dp_15"
+        android:background="@drawable/linear_bg"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -23,12 +24,13 @@
             <EditText
                 android:id="@+id/et_username"
                 style="@style/login_et"
-                android:hint="请输入用户名"
+                android:hint="请输入账号"
                 android:inputType="number" />
 
             <View
                 style="@style/login_et_blow_line"
                 android:layout_alignParentBottom="true" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -41,8 +43,9 @@
                 android:hint="请输入密码"
                 android:inputType="textPassword" />
 
-
             <View style="@style/login_et_blow_line" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -55,28 +58,24 @@
                 android:layout_width="@dimen/dp_180"
                 android:hint="请输入验证码" />
 
-
             <LinearLayout
-                android:background="@drawable/corners_code_frame"
                 android:layout_width="@dimen/dp_90"
                 android:layout_height="@dimen/dp_40"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="@dimen/dp_5"
                 android:layout_marginBottom="@dimen/dp_5"
+                android:background="@drawable/corners_code_frame"
                 android:orientation="vertical">
 
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/image_v_code"
-                    android:layout_margin="@dimen/dp_3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
                     android:visibility="visible" />
             </LinearLayout>
-
-
-            <View style="@style/login_et_blow_line" />
 
 
         </RelativeLayout>
@@ -96,14 +95,15 @@
             android:layout_centerInParent="true"
             android:text="请登录"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_22" />
+            android:textSize="@dimen/sp_24" />
 
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_30"
-            android:background="@drawable/panda_logo" />
+            android:visibility="gone"
+            android:background="@drawable/logo_git" />
 
 
     </RelativeLayout>
@@ -122,7 +122,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_40"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="-3dp"
             android:background="@drawable/corners_main"
             android:text="登录"
             android:textColor="@color/white"
@@ -130,61 +129,63 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_register"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp_5"
             android:text="立即注册"
-            android:layout_alignParentBottom="true"
-            android:textSize="@dimen/sp_14"
-            android:textColor="@color/main_text_color"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:layout_height="wrap_content"/>
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13" />
+
         <TextView
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:text="忘记密码"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:textSize="@dimen/sp_14"
-            android:textColor="@color/main_text_color"
             android:layout_marginBottom="@dimen/dp_5"
-            android:layout_height="wrap_content"/>
+            android:text="忘记密码"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13" />
 
     </RelativeLayout>
 
-    <android.support.v7.widget.AppCompatImageButton
-        android:id="@+id/icon_close_login"
-        android:layout_width="@dimen/dp_30"
-        android:layout_height="@dimen/dp_30"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_25"
-        android:layout_marginRight="@dimen/dp_15"
-        android:background="@drawable/image_close" />
-
-
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="@dimen/dp_80"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/dp_20"
-        android:layout_height="@dimen/dp_80">
+        android:orientation="horizontal">
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_wechart"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textSize="@dimen/sp_13" />
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/image_wechart"
             android:layout_width="@dimen/dp_35"
-            android:background="@drawable/wechart"
+            android:layout_height="@dimen/dp_35"
             android:layout_centerInParent="true"
-            android:layout_height="@dimen/dp_35"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/dp_5"
-            android:textSize="@dimen/sp_13"
-            android:layout_below="@id/image_wechart"
-            android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"/>
+            android:background="@drawable/wechart" />
 
 
     </RelativeLayout>
+
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/icon_close_login"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_marginRight="@dimen/dp_15"
+        android:background="@drawable/close" />
 
 
 </RelativeLayout>

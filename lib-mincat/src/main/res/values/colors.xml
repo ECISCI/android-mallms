@@ -7,7 +7,8 @@
 
     <!--app主颜色值-->
    <!-- <color name="main">#4ac2bc</color>-->
-   <color name="main">#FFB100</color>
+   <color name="main">#4ac2bc</color>
+<!--   <color name="main">#FFB100</color>-->
     <!--app主字体颜色值-->
     <color name="main_text_color">#676767</color>
 

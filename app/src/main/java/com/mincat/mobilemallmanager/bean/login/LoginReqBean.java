@@ -1,7 +1,7 @@
 package com.mincat.mobilemallmanager.bean.login;
 
 import com.mincat.mobilemallmanager.bean.BaseBean;
-import com.mincat.mobilemallmanager.entity.login.response.LoginResData;
+import com.mincat.mobilemallmanager.entity.login.LoginResData;
 
 import java.util.ArrayList;
 

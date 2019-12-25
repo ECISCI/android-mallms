@@ -9,6 +9,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi' ,'x86', 'armeabi-v7a', 'x86_64','arm64-v8a'
+        }
     }
     buildTypes {
         release {
@@ -108,6 +111,8 @@ dependencies {
 
     implementation project(':lib-mincat')
     implementation project(':lib-dialog')
+
+    implementation 'com.zyao89:zloading:1.2.0'
 
     implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.2'
 

@@ -1,6 +1,10 @@
 package com.mincat.mobilemallmanager.ui;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatImageView;
@@ -9,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.android.volley.VolleyError;
@@ -17,15 +22,16 @@ import com.mincat.mobilemallmanager.MinCatBaseRequest;
 import com.mincat.mobilemallmanager.R;
 import com.mincat.mobilemallmanager.bean.BaseBean;
 import com.mincat.mobilemallmanager.bean.login.LoginReqBean;
-import com.mincat.mobilemallmanager.entity.login.request.LoginReqData;
-import com.mincat.mobilemallmanager.entity.login.response.LoginResData;
+import com.mincat.mobilemallmanager.entity.login.LoginReqData;
+import com.mincat.mobilemallmanager.entity.login.LoginResBean;
+import com.mincat.mobilemallmanager.entity.login.LoginResData;
 import com.mincat.mobilemallmanager.utils.Constants;
-import com.mincat.mobilemallmanager.utils.HttpGetVCodeUtil;
+import com.mincat.mobilemallmanager.utils.HandleUtils;
 import com.mincat.mobilemallmanager.utils.SpUtils;
 import com.mincat.sample.custom.Code;
+import com.mincat.sample.imagecache.utils.Constant;
 import com.mincat.sample.utils.LogUtils;
 import com.mincat.sample.utils.T;
-import com.mincat.sample.utils.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +46,12 @@ public class LoginAct extends MinCatBaseRequest {
      * 日志标记
      */
     public static final String TAG = LoginAct.class.getSimpleName();
+
+    private static final int INTENT_REGISTER_CODE = 10;
+
+    private static final int LOGIN_SUCCESS = 20;
+
+    private static final int INTENT_LOGIN_SUCCESS = 21;
 
     /**
      * 关闭当前页面
@@ -72,6 +84,9 @@ public class LoginAct extends MinCatBaseRequest {
      */
     private AppCompatImageView mImageVCode;
 
+
+    private TextView mTvRegister;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,10 +112,15 @@ public class LoginAct extends MinCatBaseRequest {
         mImageVCode = getId(R.id.image_v_code);
         mImageVCode.setOnClickListener(this);
 
-        // 限制手机号输入为6位
-        mEtUserName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
-        // 限制密码输入为6位
-        mEtPassword.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+
+        mTvRegister = getId(R.id.tv_register);
+        mTvRegister.setOnClickListener(this);
+
+
+        // 限制手机号输入为11位
+        mEtUserName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+        // 限制密码输入为12位
+        mEtPassword.setFilters(new InputFilter[]{new InputFilter.LengthFilter(12)});
         // 限制验证码输入长度为4位
         mEtVerifyCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
 
@@ -116,7 +136,7 @@ public class LoginAct extends MinCatBaseRequest {
 
             String params = assembleRequestParam();
 
-            executeVolleyPostRequest(this, Constants.LOGIN, params, Constants.SIGN_LOGIN, true);
+            executeVolleyPostRequest(this, Constants.LOGIN, params, Constants.LOGIN_SIGN, true);
         }
     }
 
@@ -165,10 +185,19 @@ public class LoginAct extends MinCatBaseRequest {
 
                 onNetRequest();
                 break;
-            case R.id.image_v_code: // 获取验证码
+            case R.id.image_v_code: // 刷新验证码
                 mImageVCode.setImageBitmap(Code.getInstance().createBitmap());
                 String realCode = Code.getInstance().getCode().toLowerCase();
                 LogUtils.i(TAG, "realCode:" + realCode);
+
+                break;
+
+
+            case R.id.tv_register: // 注册用户
+
+
+                intentUtils.launchActSlideRightForResult(LoginAct.this, RegisterAct.class, INTENT_REGISTER_CODE);
+
 
                 break;
         }
@@ -191,27 +220,50 @@ public class LoginAct extends MinCatBaseRequest {
 
     }
 
+
+    private LoginResBean responseData;
+
     @Override // 当网络请求方式为POST时回调此方法
     public void onHandleResponsePost(String response, String sign) {
 
         LogUtils.i(TAG, "返回参数:" + response);
 
-        if (sign.equals(Constants.SIGN_LOGIN)) {
+        if (sign.equals(Constants.LOGIN_SIGN)) {
 
-            BaseBean baseBean = JSONObject.parseObject(response, BaseBean.class);
+            responseData = JSONObject.parseObject(response, LoginResBean.class);
 
-            if (baseBean.getCode() == 200 || baseBean.getMsg().equals("OK")) {
+            if (responseData.getCode() == Constants.REQUEST_SUCCESS_CODE
+                    && responseData.getMsg().equals(Constants.OPERATION_SUCCESS)) {
 
-                LoginReqBean loginResBean = JSONObject.parseObject(response, LoginReqBean.class);
-
-                mListResponseData = loginResBean.getData();
-
-                LoginResData data = mListResponseData.get(0);
-
-                saveUserLoginInfo(data);
+                HandleUtils.sendHandle(handler, LOGIN_SUCCESS, Constants.NULL_STRING);
             }
         }
     }
+
+
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+
+            switch (msg.what) {
+
+                case LOGIN_SUCCESS: // 登录成功
+                    Intent intent = new Intent();
+                    intent.putExtra("loginFlag", "success");
+
+                    setResult(INTENT_LOGIN_SUCCESS, intent);
+
+                    T.showShort(LoginAct.this, "登录成功");
+
+                    saveUserLoginInfo(responseData);
+                    break;
+            }
+
+            super.handleMessage(msg);
+        }
+    };
 
     /**
      * 进入主页面
@@ -227,20 +279,21 @@ public class LoginAct extends MinCatBaseRequest {
      *
      * @param data 服务端返回的用户信息
      */
-    private void saveUserLoginInfo(LoginResData data) {
+    private void saveUserLoginInfo(LoginResBean data) {
 
-        String resData = JSONObject.toJSONString(data);
+        LoginResData resData = data.getData();
+
 
         // 保存用户登录时的token值
-        SpUtils.setUserLoginToken(data.getToken(), this);
+        SpUtils.setUserLoginToken(resData.getToken(), this);
 
         // 判断用户是否已登录
         SpUtils.setIsLogin("isLogin", this);
 
-        // 保存用户的基本信息
-        SpUtils.setUserInfo(resData, this);
+        // 保存用户id用于查询 更改用户信息
+        SpUtils.setUserId(resData.getUser_id(), this);
 
-        inMainHome();
+        LoginAct.this.finish();
     }
 
     @Override // 当网络请求方式为GET时,回调此方法
@@ -256,5 +309,21 @@ public class LoginAct extends MinCatBaseRequest {
 
             LogUtils.i(TAG, "error:" + error.getMessage());
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (resultCode == RegisterAct.REGISTER_SUCCESS_RESULT_CODE) {
+
+            String username = data.getStringExtra("username");
+            String password = data.getStringExtra("password");
+
+            mEtUserName.setText(username);
+            mEtPassword.setText(password);
+        }
+
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
